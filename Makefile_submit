@@ -1,0 +1,60 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_submit                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
+#    Updated: 2023/06/26 11:55:53 by smatthes         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# $^ -> all prerequisites with spaces in between
+# $@ -> filename of the target of the rule
+# $< ->  name of the first prerequisite
+
+SHELL:=/bin/bash
+CFLAGS = -Wall -Wextra -Werror -I. -I./libft
+NAME = libftprintf.a
+TARGET_EXTENSION=out
+LINK= cc
+CC = cc
+
+SRC = 	ft_printf.c \
+		ft_vdprintf.c \
+		handle_p.c \
+		handle_c.c \
+		handle_d_i.c \
+		handle_u.c \
+		handle_x.c \
+		handle_cap_x.c \
+		handle_s.c
+
+OBJ = $(SRC:.c=.o)
+
+.PHONY: all clean fclean re main
+
+all: $(NAME)
+
+$(NAME): libft addPrintf
+
+addPrintf:: $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+libft::
+	make -C libft all
+	cp ./libft/libft.a $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	make -C libft clean
+	rm $(OBJ)
+
+fclean: clean
+	make -C libft fclean
+	rm $(NAME)
+
+re: fclean all
