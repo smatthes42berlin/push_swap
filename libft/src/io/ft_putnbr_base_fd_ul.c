@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:24:53 by smatthes          #+#    #+#             */
-/*   Updated: 2023/07/02 14:10:38 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lib_main.h"
 
 static void	put_character_ul(int fd, unsigned long nbr, t_base_info base_info,
 				size_t *chars_printed);

@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:31:05 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 11:35:37 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "./lib_main.h"
 
 size_t	ft_arr_len_char(char **arr)
 {

@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 20:11:04 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 11:31:03 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "./lib_main.h"
 
 static size_t	calc_num_substr(char const *s, char const *split_at,
 					size_t *num_substr, size_t split_at_length);

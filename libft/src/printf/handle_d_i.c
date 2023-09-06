@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_libft.h                                       :+:      :+:    :+:   */
+/*   handle_d_i.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 08:58:44 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 09:41:45 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/23 09:39:42 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/03 08:03:03 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_LIBFT_H
-# define TEST_LIBFT_H
+#include "lib_main.h"
 
-# include "../unity/src/unity.h"
-# include <fcntl.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
+size_t	handle_d_i(int fd, va_list args)
+{
+	char	*base;
+	long	nbr;
 
-#endif
+	nbr = (long)va_arg(args, int);
+	base = "0123456789";
+	return (ft_putnbr_base_fd_l(fd, nbr, base));
+}

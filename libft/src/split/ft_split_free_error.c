@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:50:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/25 18:32:51 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "./lib_main.h"
 
 int	malloc_error_free(char **res, size_t i_num_substr,
 size_t substr_len)

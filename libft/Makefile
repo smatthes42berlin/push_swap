@@ -6,25 +6,30 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/07/02 14:19:13 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/06 09:42:04 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# log variables: $(info $$var is [$(PATHTESTEXE)test_%.$(TARGET_EXTENSION)])
 # $^ -> all prerequisites with spaces in between
 # $@ -> filename of the target of the rule
 # $< ->  name of the first prerequisite
 
 include Makefile_src
+include Makefile_test
 
 # -I Flag adds path where header files are searched during preprocessing
 SHELL:=/bin/bash
-CFLAGS = -Wall -Wextra -Werror -I. -I$(BASEPATHSRC) -I$(BASEPATHTEST)
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDESRCPATH) -I$(INCLUDETESTPATH) -I$(PATHUNITY)
 NAME = libft.a
-TARGET_EXTENSION=out
-LINK= cc
+TARGET_EXTENSION=  out
+LINK = cc
 CC = cc
 
-SUBFOLDERSRC = . ascii/ convert/ io/ lst/ mem/ split/ str/ arr/ 
+PATHPROJABS = /home/smatthes/42cursus/projects42/push_swap/
+INCLUDESRCPATH = ./include/
+INCLUDETESTPATH = ./includetest/
+SUBFOLDERSRC = . ascii/ convert/ io/ lst/ mem/ split/ str/ arr/ get_next_line/ printf/
 BASEPATHSRC = ./src/
 PATHSRC = $(patsubst %,$(BASEPATHSRC)%,$(SUBFOLDERSRC))
 PATHBUILD = build/
@@ -33,20 +38,11 @@ PATHTESTEXE = build/exe/
 PATHRES = build/results/
 PATHUNITY = unity/src/
 BASEPATHTEST = ./srctest/
-SUBFOLDERTEST = . split/ arr/ io/ str/ convert/
+SUBFOLDERTEST = . split/ arr/ io/ str/ convert/ get_next_line/ printf/
 PATHTEST = $(patsubst %,$(BASEPATHTEST)%,$(SUBFOLDERTEST))
 
 # VPATH contains additional folders, where Makefile will look for source files (*.c)
 VPATH = $(PATHSRC) $(PATHTEST) $(PATHUNITY)
-			
-SRCTEST = 	test_ft_split_str.c \
-			test_ft_putnbr_base_fd_l.c \
-			test_ft_putnbr_base_fd_ul.c \
-			test_ft_arr_len_char.c \
-			test_ft_str_chr_index.c \
-			test_ft_str_cont_duplic.c \
-			test_ft_atoi_base_l.c \
-			test_ft_str_cont_chars.c
 
 SRCTESTUNIT = 	split/unit_ft_split_str.c 
 SRCTESTUNITPATH = $(patsubst %,$(BASEPATHTEST)%,$(SRCTESTUNIT))
@@ -62,6 +58,8 @@ OBJTEST = $(patsubst %,$(PATHOBJ)%,$(OBJTESTFNAME))
 # there is one results file created for each src test file 
 # (unity output is redirected to results file later)
 # also one executable for each src test file
+
+TESTOUTPUTPRINTF = $(PATHRES)test_output_pf.txt
 RESULTS = $(patsubst %.c,$(PATHRES)%.txt,$(SRCTEST) )
 TESTEXE = $(patsubst %.c,$(PATHTESTEXE)%.$(TARGET_EXTENSION),$(SRCTEST) )
 
@@ -106,8 +104,8 @@ $(PATHRES)%.txt: $(PATHTESTEXE)%.$(TARGET_EXTENSION)
 	-./$< > $@ 2>&1
 
 #test executable is created by linking test-obj, unity and libft	
-$(PATHTESTEXE)test_%.$(TARGET_EXTENSION): \
-							$(PATHOBJ)test_%.o \
+$(PATHTESTEXE)%.$(TARGET_EXTENSION): \
+							$(PATHOBJ)%.o \
 							$(PATHOBJ)unity.o
 	$(LINK) -o $@ $^ -L. $(NAME)
 
@@ -129,6 +127,7 @@ clean: testclean
 
 testclean:
 	$(RM) $(OBJTEST)
+	$(RM) $(PATHRES)test_results.txt
 	$(RM) $(RESULTS)
 	$(RM) $(TESTEXE)
 	$(RM) $(PATHOBJ)unity.o
@@ -162,7 +161,7 @@ print:
 	$(call print_file_names, $(RESULTS))
 
 # tells makefile not to delete the following files after running
-.PRECIOUS: $(PATHTESTEXE)test_%.$(TARGET_EXTENSION)
+.PRECIOUS: $(PATHTESTEXE)%.$(TARGET_EXTENSION)
 .PRECIOUS: $(PATHOBJ)%.o
 .PRECIOUS: $(PATHOBJ)%.d
 .PRECIOUS: $(PATHRES)%.txt	
