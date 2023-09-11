@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   check_input_main.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 07:24:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/11 15:58:46 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/11 08:28:31 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/11 16:42:35 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_main.h"
+#include "push_swap.h"
 
-int	ft_printf(const char *format, ...)
+int	*check_input(int argc, char *argv[])
 {
-	va_list	args;
-	int		chars_printed;
+	char	**only_ints;
+	int		*checked_input;
 
-	va_start(args, format);
-	chars_printed = ft_vdprintf(1, format, args);
-	va_end(args);
-	return (chars_printed);
+	if (argc <= 1)
+		return (NULL);
+	only_ints = check_input_only_int(argc, argv);
+	if (!only_ints)
+		return (raise_error());
+	checked_input = check_dupli_int_range(only_ints);
+	if (!checked_input)
+		return (raise_error());
+	return (checked_input);
 }
 
-int	ft_printf_fd(int fd, const char *format, ...)
+int	*raise_error(void)
 {
-	va_list	args;
-	int		chars_printed;
-
-	va_start(args, format);
-	chars_printed = ft_vdprintf(fd, format, args);
-	va_end(args);
-	return (chars_printed);
+	print_error();
+	return (NULL);
 }

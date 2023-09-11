@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   free_str_arr_null.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 07:24:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/11 15:58:46 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/11 09:29:22 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/11 14:44:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_main.h"
 
-int	ft_printf(const char *format, ...)
+void	free_str_arr_null(char **str_arr)
 {
-	va_list	args;
-	int		chars_printed;
+	int i;
 
-	va_start(args, format);
-	chars_printed = ft_vdprintf(1, format, args);
-	va_end(args);
-	return (chars_printed);
-}
-
-int	ft_printf_fd(int fd, const char *format, ...)
-{
-	va_list	args;
-	int		chars_printed;
-
-	va_start(args, format);
-	chars_printed = ft_vdprintf(fd, format, args);
-	va_end(args);
-	return (chars_printed);
+	i = 0;
+	while (str_arr[i])
+	{
+		free(str_arr[i]);
+		i++;
+	}
+	free(str_arr);
 }

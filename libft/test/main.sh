@@ -1,13 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    test.sh                                            :+:      :+:    :+:    #
+#    main.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/03 08:13:52 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/03 08:15:32 by smatthes         ###   ########.fr        #
+#    Created: 2023/09/11 08:18:14 by smatthes          #+#    #+#              #
+#    Updated: 2023/09/11 08:23:31 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-cc -Wall -Wextra -Werror main.c -L. libft.a -I./include/ -I./includetest/
+# no duplicates
+# only negative/positive numbers
+# integers
+# no parameters -> dont display anything
+# error -> display "Error\n" on std-error
+# some arguments are no integers
+
+
+# random testing   

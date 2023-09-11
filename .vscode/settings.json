@@ -6,6 +6,8 @@
     },
     "files.associations": {
         "stdlib.h": "c",
-        "lib_test_main.h": "c"
+        "lib_test_main.h": "c",
+        "lib_main.h": "c",
+        "push_swap.h": "c"
     }
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   free_str_arr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 07:24:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 11:42:39 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/11 09:29:22 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/11 14:11:55 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "lib_main.h"
 
-int	ft_printf(const char *format, ...)
+void	free_str_arr(char **str_arr, int num)
 {
-	va_list	args;
-	int		chars_printed;
-
-	va_start(args, format);
-	chars_printed = ft_vdprintf(1, format, args);
-	va_end(args);
-	return (chars_printed);
+	num--;
+	while (num >= 0)
+	{
+		free(str_arr[num]);
+		num--;
+	}
+	free(str_arr);
 }

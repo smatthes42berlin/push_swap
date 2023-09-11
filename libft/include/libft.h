@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/03 08:00:30 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:56:11 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void				ft_putchar_fd(char c, int fd);
 size_t				ft_putchar_fd_len(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
-size_t				ft_putstr_fd_len(char *s,
+size_t	ft_putstr_fd_len(char *s,
 						int fd);
 size_t				ft_putstr_fd_len_only_print(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
@@ -107,8 +107,8 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_putnbr_base_fd_l(int fd, long nbr, const char *base);
 size_t				ft_putnbr_base_fd_ul(int fd, unsigned long nbr,
 						const char *base);
-size_t				ft_putnbr_base_check(const char *base,
-						t_base_info *base_info);
+size_t	ft_putnbr_base_check(const char *base,
+							t_base_info *base_info);
 
 /* atoi itoa */
 
@@ -116,9 +116,17 @@ int					ft_atoi(const char *nptr);
 ssize_t				ft_atoi_base_l(const char *nptr, const char *base);
 char				*ft_itoa(int n);
 
-/* arr */
+/* int arr */
 
-size_t				ft_arr_len_char(char **arr);
 size_t				ft_arr_set_int(int *arr, size_t size, int num);
+int					int_arr_int_index(int *arr, int search, int arr_len);
+
+/* string array */
+size_t				ft_arr_len_char(char **arr);
+char				**ft_arr_cpy_char(char **arr, int num);
+void				free_str_arr_null(char **str_arr);
+void				free_str_arr(char **str_arr, int num);
+void				print_str_arr_null(char **arr);
+void				print_str_arr(char **arr, int num);
 
 #endif
