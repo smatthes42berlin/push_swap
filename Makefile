@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/11 16:04:49 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/12 10:12:41 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,9 @@ VPATH = $(PATHSRC)
 SRC = 	main.c \
 		check_input_main.c \
 		check_input_only_int.c \
-		print_error.c \
 		check_input_only_int_utils.c \
-		check_input_dupli_range.c
+		check_input_dupli_range.c \
+		check_input_dupli_range_utils.c
 		
 OBJFNAME = $(SRC:.c=.o)
 OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))

@@ -6,16 +6,16 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 08:28:31 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/11 16:42:35 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:12:56 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*check_input(int argc, char *argv[])
+struct t_inp_chec	*check_input(int argc, char *argv[])
 {
-	char	**only_ints;
-	int		*checked_input;
+	char		**only_ints;
+	t_inp_chec	*checked_input;
 
 	if (argc <= 1)
 		return (NULL);
@@ -28,8 +28,8 @@ int	*check_input(int argc, char *argv[])
 	return (checked_input);
 }
 
-int	*raise_error(void)
+t_inp_chec	*raise_error(void)
 {
-	print_error();
+	ft_printf_fd(2, "Error\n");
 	return (NULL);
 }
