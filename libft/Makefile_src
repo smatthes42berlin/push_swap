@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 15:04:01 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/12 18:29:10 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/18 15:44:06 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,11 @@ SRC =	ft_atoi.c \
 		dc_lst_add_back.c \
 		dc_lst_add_front.c \
 		dc_lst_size.c \
+		dc_lst_del_one.c \
+		dc_lst_clear.c \
+		dc_lst_iter_content.c \
+		dc_lst_iter_node.c \
+		dc_lst_map.c \
 		ft_arr_len_char.c \
 		ft_putstr_fd_len.c \
 		ft_putstr_fd_len_only_print.c \

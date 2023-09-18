@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/12 18:28:50 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:45:08 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,16 @@ t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 t_list_dc				*dc_lst_new(void *content);
 void					dc_lst_print_whole_str(t_list_dc *lst_ptr);
-void					dc_lst_print_one_str(t_list_dc *lst_ptr);
+void					dc_lst_print_one_str(void *lst_ptr_void);
 void					dc_lst_add_back(t_list_dc **lst, t_list_dc *new);
 void					dc_lst_add_front(t_list_dc **lst, t_list_dc *new);
 int						dc_lst_size(t_list_dc *lst);
+void					dc_lst_clear(t_list_dc **lst, void (*del)(void *));
+void					dc_lst_del_one(t_list_dc *lst, void (*del)(void *));
+void					dc_lst_iter_node(t_list_dc *lst, void (*f)(void *));
+void					dc_lst_iter_content(t_list_dc *lst, void (*f)(void *));
+t_list_dc				*dc_lst_map(t_list_dc *lst, void *(*f)(void *),
+							void (*del)(void *));
 
 /* output */
 

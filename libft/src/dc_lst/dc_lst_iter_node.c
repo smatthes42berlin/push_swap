@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   dc_lst_iter_node.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:43:37 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_main.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	dc_lst_iter_node(t_list_dc *lst, void (*f)(void *))
 {
-	if (lst == NULL)
+	t_list_dc	*head;
+	t_list_dc	*current;
+
+	if (!lst)
 		return ;
-	while (lst)
+	head = lst;
+	f(head);
+	current = lst->next;
+	while (head != current)
 	{
-		f(lst->content);
-		lst = lst->next;
+		f(head);
+		current = current->next;
 	}
 }

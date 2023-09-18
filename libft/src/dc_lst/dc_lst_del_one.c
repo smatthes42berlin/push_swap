@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   dc_lst_del_one.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/03 08:01:38 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:52:35 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_main.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	dc_lst_del_one(t_list_dc *lst, void (*del)(void *))
 {
-	t_list	*last;
-
-	if (lst == NULL)
-		return (NULL);
-	last = lst;
-	while (last->next)
-		last = last->next;
-	return (last);
+	del(lst->content);
+	free(lst);
+	lst = NULL;
 }
