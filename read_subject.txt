@@ -1,0 +1,18 @@
+- first check all arguments before allocating any memory
+- ft_split might have mem leaks
+- libft is allowed including
+- add printf and get_next_line to libft
+- no global variables
+- first argument should be on top of stack
+- should work with many arguments and one string argument with many numbers
+- when no params provided -> display nothing and give prompt back
+- write bash script to check every error handling case is covered
+- in case of error display "Error\n" on !STANDARD ERROR!
+- errors include: some non integer args, some args are bigger than int, duplicate args
+- write bash script, that automatically runs checker
+- functions needed:
+    - create stack
+    - rotate stack
+    - reverse rotate stack
+    - swap stack
+    - push element
