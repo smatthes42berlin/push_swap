@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/18 15:45:08 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:04:51 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void					dc_lst_iter_node(t_list_dc *lst, void (*f)(void *));
 void					dc_lst_iter_content(t_list_dc *lst, void (*f)(void *));
 t_list_dc				*dc_lst_map(t_list_dc *lst, void *(*f)(void *),
 							void (*del)(void *));
+int						dc_lst_exactly_one(t_list_dc *lst_ptr);
 
 /* output */
 
