@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_add_back.c                                  :+:      :+:    :+:   */
+/*   dc_lst_print_sep.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/19 14:32:17 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:07:04 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_main.h"
 
-void	dc_lst_add_back(t_list_dc **lst, t_list_dc *new)
+void	dc_lst_print_sep(void)
 {
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		(*lst)->prev->next = new;
-		(*lst)->prev = new;
-	}
+	ft_printf(GREEN);
+	ft_printf("****************************\n");
+	ft_printf(WHITE);
+	return ;
 }

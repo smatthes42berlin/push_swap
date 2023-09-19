@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/18 16:06:58 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/19 09:49:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_list_dc	*dc_lst_pop(t_list_dc **lst)
 {
 	t_list_dc	*old_head;
-	t_list_dc	*new_head;
 
 	if (!lst || !*lst)
 		return (NULL);
@@ -24,7 +23,11 @@ t_list_dc	*dc_lst_pop(t_list_dc **lst)
 		*lst = NULL;
 	else
 	{
-		// set next prev
+		*lst = old_head->next;
+		old_head->next->prev = old_head->prev;
+		old_head->prev->next = old_head->next;
+		old_head->next = old_head;
+		old_head->prev = old_head;
 	}
 	return (old_head);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_add_back.c                                  :+:      :+:    :+:   */
+/*   str_are_equal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/19 14:32:17 by smatthes         ###   ########.fr       */
+/*   Created: 2023/03/21 08:50:34 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/19 10:49:23 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_main.h"
-
-void	dc_lst_add_back(t_list_dc **lst, t_list_dc *new)
+int	str_are_equal(const char *s1, const char *s2)
 {
-	if (!*lst)
-		*lst = new;
+	unsigned int	i;
+
+	i = 0;
+	if (!s1 && !s2)
+		return (1);
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] == s2[i] && s1[i])
+		i++;
+	if (s1[i] == s2[i])
+		return (1);
 	else
-	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		(*lst)->prev->next = new;
-		(*lst)->prev = new;
-	}
+		return (0);
 }

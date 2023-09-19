@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_add_back.c                                  :+:      :+:    :+:   */
+/*   check_input_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/19 14:32:17 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/19 18:02:50 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/19 18:06:09 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_main.h"
+#include "push_swap.h"
 
-void	dc_lst_add_back(t_list_dc **lst, t_list_dc *new)
+int	input_is_sorted(t_inp_chec *checked_input)
 {
-	if (!*lst)
-		*lst = new;
-	else
+	int i;
+	int current;
+	int next;
+
+	i = 0;
+	while (i < checked_input->num - 1)
 	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		(*lst)->prev->next = new;
-		(*lst)->prev = new;
+		current = checked_input->int_list[i];
+		next = checked_input->int_list[i + 1];
+		if (next < current)
+			return (0);
+		i++;
 	}
+	return (1);
 }

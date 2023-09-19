@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_print_whole_str.c                           :+:      :+:    :+:   */
+/*   dc_lst_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/18 15:45:45 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:16:43 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_main.h"
 
-void	dc_lst_print_whole_str(t_list_dc *lst_ptr)
+t_list_dc	*dc_lst_swap(t_list_dc **lst)
 {
 	t_list_dc	*head;
+	t_list_dc	*second;
 
-	head = lst_ptr;
-	if (!lst_ptr)
+	head = *lst;
+	if (!lst || !head)
+		return (NULL);
+	if (dc_lst_exactly_one(head))
+		return (head);
+	else
 	{
-		ft_printf(CYAN);
-		ft_printf("---PASSED EMPTY LIST - NOTHING TO PRINT---\n");
-		ft_printf(WHITE);
-		return ;
+		second = head->next;
+		head->next = second->next;
+		second->prev = head->prev;
+		second->next->prev = head;
+		head->prev->next = second;
+		head->prev = second;
+		second->next = head;
+		*lst = second;
 	}
-	dc_lst_iter_node(head, &dc_lst_print_one_str);
-	ft_printf(CYAN);
-	ft_printf("---ALL PRINTED---\n");
-	ft_printf(WHITE);
-	return ;
+	return (second);
 }

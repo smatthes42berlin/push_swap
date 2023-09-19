@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 11:35:25 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/18 13:50:12 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:32:37 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,20 @@ int	main(void)
 	i = 1;
 	test = ft_strdup("0");
 	lst = NULL;
-	size = dc_lst_size(lst);
-	ft_printf("size is %d\n", size);
 	lst = dc_lst_new(test);
-	size = dc_lst_size(lst);
-	ft_printf("size is %d\n", size);
 	while (i < 4)
 	{
 		test = ft_itoa(i);
 		new = dc_lst_new(test);
-		dc_lst_add_front(&lst, new);
+		dc_lst_add_back(&lst, new);
 		i++;
 	}
 	size = dc_lst_size(lst);
-	ft_printf("size is %d\n", size);
+	dc_lst_swap(&lst);
+	dc_lst_print_whole(lst, "short", "str");
+	// dc_lst_print_whole_str(lst, "long");
 	// mapped = dc_lst_map(lst, &add_one_thousand, &free);
-	ft_printf("%p\n", lst);
-	dc_lst_print_whole_str(lst);
+	// dc_lst_print_whole_str(lst);
 	// dc_lst_print_whole_str(mapped);
 	// dc_lst_clear(&lst, &free);
 	// dc_lst_print_whole_str(lst);

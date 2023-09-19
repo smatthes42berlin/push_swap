@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 15:04:01 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/18 15:44:06 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/19 15:31:29 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,12 @@ SRC =	ft_atoi.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
 		dc_lst_new.c \
-		dc_lst_print_one_str.c \
-		dc_lst_print_whole_str.c \
+		dc_lst_print_one_str_short.c \
+		dc_lst_print_one_str_long.c \
+		dc_lst_print_one_int_short.c \
+		dc_lst_print_one_int_long.c \
+		dc_lst_print_sep.c \
+		dc_lst_print_whole.c \
 		dc_lst_add_back.c \
 		dc_lst_add_front.c \
 		dc_lst_size.c \
@@ -70,6 +74,9 @@ SRC =	ft_atoi.c \
 		dc_lst_iter_content.c \
 		dc_lst_iter_node.c \
 		dc_lst_map.c \
+		dc_lst_pop.c \
+		dc_lst_exactly_one.c \
+		dc_lst_swap.c \
 		ft_arr_len_char.c \
 		ft_putstr_fd_len.c \
 		ft_putstr_fd_len_only_print.c \
@@ -79,6 +86,7 @@ SRC =	ft_atoi.c \
 		ft_putnbr_base_check.c \
 		ft_str_cont_duplic.c \
 		ft_str_chr_index.c \
+		str_are_equal.c \
 		ft_arr_set_int.c \
 		ft_str_cont_chars.c \
 		get_next_line.c \

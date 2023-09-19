@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/18 16:04:51 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:30:30 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char					*ft_strnstr(const char *big, const char *little,
 							size_t len);
 int						ft_str_cont_duplic(const char *str);
 int						ft_str_cont_chars(const char *str, const char *set);
+int						str_are_equal(const char *s1, const char *s2);
 
 /* str manip */
 
@@ -106,8 +107,17 @@ t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
 /* double circular linked list */
 
 t_list_dc				*dc_lst_new(void *content);
-void					dc_lst_print_whole_str(t_list_dc *lst_ptr);
-void					dc_lst_print_one_str(void *lst_ptr_void);
+
+void	dc_lst_print_whole(t_list_dc *lst_ptr,
+						const char *longShort,
+						const char *type);
+void					dc_lst_print_one_str_long(void *lst_ptr_void);
+void					dc_lst_print_one_str_short(void *lst_ptr_void);
+void					dc_lst_print_one_int_long(void *lst_ptr_void);
+void					dc_lst_print_one_int_short(void *lst_ptr_void);
+
+void					dc_lst_print_sep(void);
+
 void					dc_lst_add_back(t_list_dc **lst, t_list_dc *new);
 void					dc_lst_add_front(t_list_dc **lst, t_list_dc *new);
 int						dc_lst_size(t_list_dc *lst);
@@ -118,6 +128,9 @@ void					dc_lst_iter_content(t_list_dc *lst, void (*f)(void *));
 t_list_dc				*dc_lst_map(t_list_dc *lst, void *(*f)(void *),
 							void (*del)(void *));
 int						dc_lst_exactly_one(t_list_dc *lst_ptr);
+t_list_dc				*dc_lst_pop(t_list_dc **lst);
+int						dc_lst_exactly_one(t_list_dc *lst_ptr);
+t_list_dc				*dc_lst_swap(t_list_dc **lst);
 
 /* output */
 
