@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/19 18:16:02 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/29 18:43:30 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,20 @@ SRC = 	main.c \
 		check_input_dupli_range_utils.c \
 		set_up_stacks.c \
 		set_up_stacks_free.c \
+		set_up_stacks_init_sort_param.c \
 		check_input_sorted.c \
-		input_invalid_or_sorted.c  
+		input_invalid_or_sorted.c \
+		convert_list_to_ranks.c \
+		convert_list_to_ranks_free.c \
+		sort_stack_main.c \
+		sort_stack_big_5.c \
+		sort_stack_2.c \
+		sort_stack_3.c \
+		sort_stack_5.c \
+		sort_stack_5_util.c \
+		sort_stack_op_push.c \
+		sort_stack_op_rotate.c \
+		sort_stack_op_swap.c
 		
 OBJFNAME = $(SRC:.c=.o)
 OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))

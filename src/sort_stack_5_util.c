@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_clear.c                                     :+:      :+:    :+:   */
+/*   sort_stack_5_util.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/29 16:56:37 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/29 11:01:53 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/29 18:45:12 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_main.h"
+#include "push_swap.h"
 
-void	dc_lst_clear(t_list_dc **lst, void (*del)(void *))
+int	get_index(t_stack_a_b *stack_a_b, int val)
 {
+	int			index;
+	int			next_val;
 	t_list_dc	*temp;
-	t_list_dc	*current;
-	t_list_dc	*head;
 
-	if (!lst || !*lst)
-		return ;
-	head = *lst;
-	current = (*lst)->next;
-	while (head != current)
+	index = 0;
+	temp = stack_a_b->a;
+	next_val = *(int *)stack_a_b->a->content;
+	while (next_val != val)
 	{
-		temp = current;
-		current = current->next;
-		dc_lst_del_one(temp, del);
+		index++;
+		temp = temp->next;
+		next_val = *(int *)temp->content;
 	}
-	dc_lst_del_one(head, del);
-	*lst = NULL;
+	return (index);
+}
+
+void	rev_rotate_push(t_stack_a_b *stack_a_b, int val)
+{
+	int	cur_val;
+
+	cur_val = *(int *)stack_a_b->a->content;
+	while (cur_val )
+	{
+	}
 }

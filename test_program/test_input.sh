@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 09:17:17 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/19 18:17:07 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/29 17:20:38 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ run_random_valid_input() {
     count=$(shuf -i 1-500 -n 1)
     lower_lim=0
     upper_lim=2147483648
-    # upper_lim=214748364800000000
     get_random_arr $count $upper_lim $lower_lim
     test_v "$args"
 }
@@ -77,35 +76,56 @@ test_iv() {
     test_invalid "$@"
 }
 
+test_v_wc() {
+    test_valid_wc $@
+    test_valid_wc "$@"
+}
+
+test_valid_wc() {
+    # res=$(../push_swap $@ | ./checker_linux $@)
+    res=$(../push_swap $@ | wc -l)
+    res_vg=$(valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ../push_swap $@ 2>&1)
+    check_memory_leaks $res_vg
+    echo $res
+}
+
+run_random_valid_input_wc() {
+    count=500
+    lower_lim=0
+    upper_lim=600
+    get_random_arr $count $upper_lim $lower_lim
+    test_v_wc "$args"
+}
+
 clear
 
 for run in {1..5}; do
-    run_random_valid_input
+    run_random_valid_input_wc
 done
 
-printf "\n\nINVALID\n"
+# printf "\n\nINVALID\n"
 
-test_iv "1 2 3 4 a"
-test_iv "z 1 2 3 4 5"
-test_iv "1 2 3 4 5 6 7 1"
-test_iv "1 2 5 6 2147483648"
-test_iv "1 2 5 6 -2147483649"
-test_iv "1 ++2 5 6"
-test_iv "1 --2 5 6"
-test_iv "1 --2 5 \n 6"
-test_iv "1 --2 ~ 5 6"
-test_iv "1 2 35 435 6 5437 654 78 65 8 7 2 35"
-test_invalid "\"1 2 \" \"3 4\""
+# test_iv "1 2 3 4 a"
+# test_iv "z 1 2 3 4 5"
+# test_iv "1 2 3 4 5 6 7 1"
+# test_iv "1 2 5 6 2147483648"
+# test_iv "1 2 5 6 -2147483649"
+# test_iv "1 ++2 5 6"
+# test_iv "1 --2 5 6"
+# test_iv "1 --2 5 \n 6"
+# test_iv "1 --2 ~ 5 6"
+# test_iv "1 2 35 435 6 5437 654 78 65 8 7 2 35"
+# test_invalid "\"1 2 \" \"3 4\""
 
-printf "\n\nVALID\n"
+# printf "\n\nVALID\n"
 
-test_v "0001 2 3 4 5 6"
-test_v "-0001 2 -3 4 5 6"
-test_v "0001 2 3 -4 4 5 6"
-test_v "0001 2 3 -4 4    5 6"
-test_v "0001 2 3 -4 4   -0000000000000000000000000000000000000000000002147483648 5 6"
-test_v "0001 2 3 -4 4   0000000000000000000000000000000000000000000002147483647 5 6"
-test_valid "   1    " "    3   "
-test_valid "   1    " "    -3   "
+# test_v "0001 2 3 4 5 6"
+# test_v "-0001 2 -3 4 5 6"
+# test_v "0001 2 3 -4 4 5 6"
+# test_v "0001 2 3 -4 4    5 6"
+# test_v "0001 2 3 -4 4   -0000000000000000000000000000000000000000000002147483648 5 6"
+# test_v "0001 2 3 -4 4   0000000000000000000000000000000000000000000002147483647 5 6"
+# test_valid "   1    " "    3   "
+# test_valid "   1    " "    -3   "
 
 echo

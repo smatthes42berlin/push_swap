@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 15:04:01 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/19 15:31:29 by smatthes         ###   ########.fr        #
+#    Updated: 2023/09/29 11:35:23 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,4 +106,5 @@ SRC =	ft_atoi.c \
 		print_str_arr_null.c \
 		print_str_arr.c \
 		int_arr_int_index.c \
-		print_int_arr.c
+		print_int_arr.c \
+		ft_pow.c

@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/19 15:30:30 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:34:48 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,5 +167,9 @@ void					free_str_arr_null(char **str_arr);
 void					free_str_arr(char **str_arr, int num);
 void					print_str_arr_null(char **arr);
 void					print_str_arr(char **arr, int num);
+
+/* math */
+
+int						ft_pow(int nb, int power);
 
 #endif

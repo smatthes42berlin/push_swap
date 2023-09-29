@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:30:48 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/19 15:36:42 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:24:48 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_stack_a_b	*set_up_stacks(t_inp_chec *checked_input)
 			return (raise_error_inp_stack(checked_input, &stack_a_b));
 		i++;
 	}
+	initilise_sorting_params(stack_a_b);
 	free_checked_input(checked_input);
 	return (stack_a_b);
 }

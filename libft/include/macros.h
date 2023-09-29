@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 07:50:58 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/03 08:08:18 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:56:54 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define TRUE 1
 # define FALSE 0
 # define ERROR -1
+# define BOOLEAN int
 
 // for get_next_line
 # define BUFFER_PARSED -2

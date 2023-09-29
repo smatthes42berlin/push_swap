@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dc_lst_clear.c                                     :+:      :+:    :+:   */
+/*   sort_stack_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/09/29 16:56:37 by smatthes         ###   ########.fr       */
+/*   Created: 2023/09/29 11:01:53 by smatthes          #+#    #+#             */
+/*   Updated: 2023/09/29 17:36:01 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_main.h"
+#include "push_swap.h"
 
-void	dc_lst_clear(t_list_dc **lst, void (*del)(void *))
+t_stack_a_b	*sort_stack_2(t_stack_a_b *stack_a_b)
 {
-	t_list_dc	*temp;
-	t_list_dc	*current;
-	t_list_dc	*head;
-
-	if (!lst || !*lst)
-		return ;
-	head = *lst;
-	current = (*lst)->next;
-	while (head != current)
-	{
-		temp = current;
-		current = current->next;
-		dc_lst_del_one(temp, del);
-	}
-	dc_lst_del_one(head, del);
-	*lst = NULL;
+    swap_a(stack_a_b);
+	return (stack_a_b);
 }
