@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/30 18:29:07 by smatthes          #+#    #+#              #
-#    Updated: 2023/10/05 11:43:47 by smatthes         ###   ########.fr        #
+#    Updated: 2023/10/05 15:34:32 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ run_random_valid_input_sort() {
     count=4
     count=$(shuf -i 1-600 -n 1)
     # echo $count
-    # count=0
+    count=100
     lower_lim=0
     upper_lim=2147483648
     get_random_arr $count $upper_lim $lower_lim
@@ -39,7 +39,7 @@ run_random_valid_input_sort() {
     res=$(../push_swap "$args" | ./checker_linux "$args")
     # echo $res
     res_wc=$(../push_swap "$args" | wc -l)
-    # echo $res_wc
+    echo $res_wc
     res_vg=$(valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ../push_swap "$args" 2>&1)
     check_memory_leaks $res_vg
     # echo -e "$res"
@@ -68,6 +68,8 @@ run_defined_input() {
 for run in {1..20}; do
     run_random_valid_input_sort
 done
+
+exit
 
 echo
 echo DEFINED

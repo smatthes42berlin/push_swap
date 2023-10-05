@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/30 18:20:54 by smatthes          #+#    #+#              #
-#    Updated: 2023/10/05 11:00:48 by smatthes         ###   ########.fr        #
+#    Updated: 2023/10/05 15:29:00 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,11 @@ test_invalid() {
 printf "\n\nINVALID\n"
 
 test_iv "1 2 3 4 a"
+test_iv "1 2 3 4 -"
+test_iv "1 2 3 4 +"
+test_iv "1 2 3 4 +-"
+test_iv "1 2 3 4 -+"
+test_iv "1 2 3 4 -+1"
 test_iv "z 1 2 3 4 5"
 test_iv "1 2 3 4 5 6 7 1"
 test_iv "1 2 5 6 2147483648"

@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 08:28:31 by smatthes          #+#    #+#             */
-/*   Updated: 2023/10/05 11:54:31 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:09:51 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ char	**check_each_item(char **str_list)
 
 int	check_item(char *str)
 {
+	int	str_len;
+
+	str_len = ft_strlen(str);
 	if (!(ft_isdigit(*str) || *str == '-' || *str == '+'))
+		return (0);
+	if (!ft_isdigit(str[str_len - 1]))
 		return (0);
 	str++;
 	while (*str)

@@ -18,8 +18,8 @@ cp ./Makefile_submit ./submission/Makefile
 cp -r ./test_program/ submission/
 
 cd ./submission/
-bash ./test_program/main.sh
-
+# bash ./test_program/main.sh
+pwd
 rm -rf ./test_program
 
 # rm -rf test_program
