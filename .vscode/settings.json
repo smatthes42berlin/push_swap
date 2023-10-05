@@ -8,6 +8,7 @@
         "stdlib.h": "c",
         "lib_test_main.h": "c",
         "lib_main.h": "c",
-        "push_swap.h": "c"
+        "push_swap.h": "c",
+        "included_ext_libs.h": "c"
     }
 }
